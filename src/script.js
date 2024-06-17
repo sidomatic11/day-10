@@ -251,6 +251,10 @@ function flip() {
 				duration: 0.1,
 				overwrite: true,
 			});
+			const sound = intersects[i].object.children[0];
+			if (sound) {
+				sound.play();
+			}
 		} /* else {
 			intersects[i].object.material.color.set(colors.front);
 			intersects[i].object.userData.flipped = false;
@@ -260,10 +264,6 @@ function flip() {
 				overwrite: true,
 			});
 		} */
-		const sound = intersects[i].object.children[0];
-		if (sound) {
-			sound.play();
-		}
 	}
 }
 
