@@ -293,14 +293,14 @@ function detectDoubleTapClosure() {
 	return function detectDoubleTap(event) {
 		const curTime = new Date().getTime();
 		const tapLen = curTime - lastTap;
-		if (tapLen < 500 && tapLen > 0) {
+		if (tapLen < 400 && tapLen > 0) {
 			console.log("Double tapped!");
 			reset();
 			event.preventDefault();
 		} else {
 			timeout = setTimeout(() => {
 				clearTimeout(timeout);
-			}, 500);
+			}, 400);
 		}
 		lastTap = curTime;
 	};
