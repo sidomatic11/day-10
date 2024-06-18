@@ -232,6 +232,7 @@ function render() {
 
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
+const canVibrate = window.navigator.vibrate;
 
 function flip() {
 	// update the picking ray with the camera and pointer position
@@ -254,6 +255,7 @@ function flip() {
 			const sound = intersects[i].object.children[0];
 			if (sound) {
 				sound.play();
+				if (canVibrate) window.navigator.vibrate(100);
 			}
 		} /* else {
 			intersects[i].object.material.color.set(colors.front);
